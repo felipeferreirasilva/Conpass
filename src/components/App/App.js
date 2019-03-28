@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { addHotspot } from '../../actions'
 
 import NavigationBar from '../NavigationBar/NavigationBar'
-import Hotspots from '../Hotspots/Hotspots'
+import Routes from '../Routes/Routes'
 
 import Popover from '../Popover/Popover'
 
@@ -47,16 +47,20 @@ class App extends Component {
   // Captura click do mouse na posição salva no state e adiciona ao array de hotspots
   onMouseClick = () => {
     if (this.state.hotspotCreatorActive) {
-      
-      let title = prompt('Titulo do hotspot')
-      
-      let newHotspot = {
-        title: title,
-        x: this.state.x,
-        y: this.state.y
-      }
 
-      this.props.dispatch(addHotspot(newHotspot))
+      let title = prompt('Titulo do hotspot')
+      let message = prompt('Mensagem do hotspot')
+
+      if (title !== null && title !== '' && message !== null && message !== '') {
+        let newHotspot = {
+          title: title,
+          message: message,
+          x: this.state.x,
+          y: this.state.y
+        }
+
+        this.props.dispatch(addHotspot(newHotspot))
+      }
 
       this.setState({
         hotspotCreatorActive: false
@@ -71,8 +75,6 @@ class App extends Component {
   }
 
   render() {
-
-
     return (
       <div
         onMouseMove={e => this.onMouseMove(e)}
@@ -81,11 +83,11 @@ class App extends Component {
         onClick={this.onMouseClick}>
 
         <NavigationBar />
-        <Hotspots activeHotspotCreator={this.activeHotspotCreator} />
+        <Routes activeHotspotCreator={this.activeHotspotCreator} />
 
         {/* Exibe os hotspots cadastrados */}
         {this.props.hotspots.map((hotspot, index) => (
-          <Popover title={hotspot.title} x={hotspot.x} y={hotspot.y} />
+          <Popover key={index} title={hotspot.title} message={hotspot.message} x={hotspot.x} y={hotspot.y}/>
         ))}
 
       </div>

@@ -1,9 +1,7 @@
 import { ADD_HOTSPOT } from '../actions'
 import { combineReducers } from 'redux'
 
-const initialState = []
-
-const hotspots = (state = initialState, action) => {
+const hotspots = (state = [], action) => {
     switch (action.type) {
         case ADD_HOTSPOT:
             let newState = [...state]
