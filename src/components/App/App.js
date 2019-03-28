@@ -83,7 +83,7 @@ class App extends Component {
         onClick={this.onMouseClick}>
 
         <NavigationBar />
-        <Routes activeHotspotCreator={this.activeHotspotCreator} />
+        <Routes activeHotspotCreator={this.activeHotspotCreator} hotspotCreatorActive={this.state.hotspotCreatorActive}/>
 
         {/* Exibe os hotspots cadastrados */}
         {this.props.hotspots.map((hotspot, index) => (
