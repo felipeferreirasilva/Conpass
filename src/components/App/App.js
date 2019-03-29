@@ -7,6 +7,7 @@ import { addHotspot } from '../../actions'
 // Importa components do React-Bootstrap
 import NavigationBar from '../NavigationBar/NavigationBar'
 import Routes from '../Routes/Routes'
+import Container from 'react-bootstrap/Container'
 
 class App extends Component {
   state = {
@@ -84,10 +85,10 @@ class App extends Component {
 
   render() {
     return (
-      <div id="mainWindow" onMouseMove={e => this.onMouseMove(e)} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} onClick={this.onMouseClick}>
+      <Container fluid id="mainWindow" onMouseMove={e => this.onMouseMove(e)} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} onClick={this.onMouseClick}>
         <NavigationBar />
         <Routes activeHotspotCreator={this.activeHotspotCreator} hotspotCreatorStatus={this.state.hotspotCreatorStatus} />
-      </div>
+      </Container>
     )
   }
 }
