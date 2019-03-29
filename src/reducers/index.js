@@ -1,7 +1,13 @@
 import { ADD_HOTSPOT, DEL_HOTSPOT } from '../actions'
 import { combineReducers } from 'redux'
 
-const hotspots = (state = [], action) => {
+let initialState = []
+
+if (localStorage.length > 0) {
+    initialState = JSON.parse(localStorage.getItem('hotspots'))
+}
+
+const hotspots = (state = initialState, action) => {
     let newState = [...state]
     switch (action.type) {
         case ADD_HOTSPOT:

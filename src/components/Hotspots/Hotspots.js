@@ -6,7 +6,6 @@ import { delHotspot } from '../../actions'
 import { connect } from 'react-redux';
 
 const Hotspots = ({ activeHotspotCreator, hotspotCreatorActive, hotspots, dispatch }) => {
-    console.log()
     return (
         <Container style={stylesheet.container} className="m-auto">
             <div className="mb-5 text-center">
@@ -15,7 +14,7 @@ const Hotspots = ({ activeHotspotCreator, hotspotCreatorActive, hotspots, dispat
             <Table hover borderless>
                 <thead className="bg-light">
                     <tr>
-                        <th className="text-muted">List of Hotspots</th>
+                        <th className="text-muted font-weight-normal">List of Hotspots</th>
                         <th></th>
                     </tr>
                 </thead>

@@ -4,7 +4,6 @@ import { addHotspot } from '../../actions'
 
 import NavigationBar from '../NavigationBar/NavigationBar'
 import Routes from '../Routes/Routes'
-
 import Popover from '../Popover/Popover'
 
 class App extends Component {
@@ -47,10 +46,8 @@ class App extends Component {
   // Captura click do mouse na posição salva no state e adiciona ao array de hotspots
   onMouseClick = () => {
     if (this.state.hotspotCreatorActive) {
-
       let title = prompt('Titulo do hotspot')
       let message = prompt('Mensagem do hotspot')
-
       if (title !== null && title !== '' && message !== null && message !== '') {
         let newHotspot = {
           title: title,
@@ -58,10 +55,8 @@ class App extends Component {
           x: this.state.x,
           y: this.state.y
         }
-
         this.props.dispatch(addHotspot(newHotspot))
       }
-
       this.setState({
         hotspotCreatorActive: false
       })
@@ -83,11 +78,11 @@ class App extends Component {
         onClick={this.onMouseClick}>
 
         <NavigationBar />
-        <Routes activeHotspotCreator={this.activeHotspotCreator} hotspotCreatorActive={this.state.hotspotCreatorActive}/>
+        <Routes activeHotspotCreator={this.activeHotspotCreator} hotspotCreatorActive={this.state.hotspotCreatorActive} />
 
         {/* Exibe os hotspots cadastrados */}
         {this.props.hotspots.map((hotspot, index) => (
-          <Popover key={index} title={hotspot.title} message={hotspot.message} x={hotspot.x} y={hotspot.y}/>
+          <Popover key={index} title={hotspot.title} message={hotspot.message} x={hotspot.x} y={hotspot.y} />
         ))}
 
       </div>
