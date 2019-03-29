@@ -11,7 +11,7 @@ const Hotspots = ({ activeHotspotCreator, hotspotCreatorActive, hotspots, dispat
             <div className="mb-5 text-center">
                 <Button onClick={activeHotspotCreator} variant="info" className="rounded-pill" size="lg" disabled={hotspotCreatorActive}>Create Hotspot</Button>
             </div>
-            <Table hover borderless>
+            <Table hover borderless className="col-md-6 m-auto">
                 <thead className="bg-light">
                     <tr>
                         <th className="text-muted font-weight-normal">List of Hotspots</th>
