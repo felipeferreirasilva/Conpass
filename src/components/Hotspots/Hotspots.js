@@ -8,12 +8,14 @@ import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
+import Popover from '../Popover/Popover'
 
-const Hotspots = ({ activeHotspotCreator, hotspotCreatorActive, hotspots, dispatch }) => {
+const Hotspots = ({ activeHotspotCreator, hotspotCreatorStatus, hotspots, dispatch }) => {
     return (
         <Container style={stylesheet.container} className="m-auto">
             <div className="mb-5 text-center">
-                <Button onClick={activeHotspotCreator} variant="info" className="rounded-pill" size="lg" disabled={hotspotCreatorActive}>Create Hotspot</Button>
+                {/* // Botao que ativa o rastreio para iniciar cadastramento de Hotspots */}
+                <Button onClick={activeHotspotCreator} variant="info" className="rounded-pill" size="lg" disabled={hotspotCreatorStatus}>Create Hotspot</Button>
             </div>
             <Table hover borderless className="col-md-6 m-auto">
                 <thead className="bg-light">
@@ -23,7 +25,8 @@ const Hotspots = ({ activeHotspotCreator, hotspotCreatorActive, hotspots, dispat
                     </tr>
                 </thead>
                 <tbody>
-                    {hotspots.map((hotspot, index) => (
+                    {/* Imprime a lista de Hotspots cadastrados */}
+                    {hotspots.map((_, index) => (
                         <tr key={index} className="border-bottom">
                             <td className="text-muted">Hotspot #{index + 1}</td>
                             <td className="text-right"><Button variant="link" onClick={() => dispatch(delHotspot(index))}><u>Delete</u></Button></td>
@@ -31,6 +34,10 @@ const Hotspots = ({ activeHotspotCreator, hotspotCreatorActive, hotspots, dispat
                     ))}
                 </tbody>
             </Table>
+            {/* Imprime na tela os hotspots cadastrados */}
+            {hotspots.map((hotspot, index) => (
+                <Popover key={index} title={hotspot.title} message={hotspot.message} x={hotspot.x} y={hotspot.y} />
+            ))}
         </Container>
     )
 }
