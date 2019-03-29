@@ -37,7 +37,7 @@ const mapStateToProps = state => {
 
 const stylesheet = {
     container: {
-        width: '50%',
+        // width: '70%',
         height: '100vh'
     }
 }
