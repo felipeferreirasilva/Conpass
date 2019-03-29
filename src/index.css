@@ -1,5 +1,10 @@
 body{
     margin: 0;
+    height: '100vh';
+}
+
+#mainWindow{
+    height: 100vh;
 }
 
 .selectedElement{

@@ -12,7 +12,7 @@ import Popover from '../Popover/Popover'
 
 const Hotspots = ({ activeHotspotCreator, hotspotCreatorStatus, hotspots, dispatch }) => {
     return (
-        <Container style={stylesheet.container} className="m-auto">
+        <Container className="m-auto">
             <div className="mb-5 text-center">
                 {/* // Botao que ativa o rastreio para iniciar cadastramento de Hotspots */}
                 <Button onClick={activeHotspotCreator} variant="info" className="rounded-pill" size="lg" disabled={hotspotCreatorStatus}>Create Hotspot</Button>
@@ -44,12 +44,6 @@ const Hotspots = ({ activeHotspotCreator, hotspotCreatorStatus, hotspots, dispat
 
 const mapStateToProps = state => {
     return state
-}
-
-const stylesheet = {
-    container: {
-        height: '100vh'
-    }
 }
 
 export default connect(mapStateToProps)(Hotspots)

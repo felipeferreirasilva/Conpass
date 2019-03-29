@@ -84,11 +84,11 @@ class App extends Component {
 
   render() {
     return (
-      <div onMouseMove={e => this.onMouseMove(e)} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} onClick={this.onMouseClick}>
+      <div id="mainWindow" onMouseMove={e => this.onMouseMove(e)} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} onClick={this.onMouseClick}>
         <NavigationBar />
         <Routes activeHotspotCreator={this.activeHotspotCreator} hotspotCreatorStatus={this.state.hotspotCreatorStatus} />
       </div>
-    );
+    )
   }
 }
 
