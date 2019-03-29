@@ -15,7 +15,7 @@ const NavigationBar = () => {
         <Navbar bg="transparent" expand="md" className="border-bottom p-4">
             <Navbar.Brand>
                 <Link to='/'>
-                    <img src={logo} width="150" height="34" className="d-inline-block align-top mr-2" alt="React Bootstrap logo" />
+                    <img src={logo} width="150" height="34" className="d-inline-block align-top mr-2" alt="logo" />
                 </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
