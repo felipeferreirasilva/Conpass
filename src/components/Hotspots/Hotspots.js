@@ -1,9 +1,13 @@
 import React from 'react'
+
+//Redux
+import { delHotspot } from '../../actions'
+import { connect } from 'react-redux';
+
+// Importa components do Bootstrap
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
-import { delHotspot } from '../../actions'
-import { connect } from 'react-redux';
 
 const Hotspots = ({ activeHotspotCreator, hotspotCreatorActive, hotspots, dispatch }) => {
     return (
@@ -37,7 +41,6 @@ const mapStateToProps = state => {
 
 const stylesheet = {
     container: {
-        // width: '70%',
         height: '100vh'
     }
 }

@@ -1,8 +1,12 @@
 import React from 'react'
+
+// Importa Link para alteraçao de rotas
 import { Link } from 'react-router-dom'
 
+// Importa imagem para logo da pasta static/images
 import logo from '../../static/images/logo.png'
 
+// Importa components do Bootstrap
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 

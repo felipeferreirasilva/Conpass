@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
+
+// Redux
 import { connect } from 'react-redux'
 import { addHotspot } from '../../actions'
 
+// Importa components do React-Bootstrap
 import NavigationBar from '../NavigationBar/NavigationBar'
 import Routes from '../Routes/Routes'
 import Popover from '../Popover/Popover'
 
 class App extends Component {
   state = {
+    // Cordanadas do mouse
     x: 0,
     y: 0,
+    // Elemento onde o mouse se encontra
     element: undefined,
+    // Ativa o rastreio de elementos e criaçao do hotspot
     hotspotCreatorActive: false
   }
 
@@ -24,10 +30,10 @@ class App extends Component {
   onMouseOver = () => {
     if (this.state.hotspotCreatorActive) {
       setTimeout(() => {
+        // Salva elemento apontado no state
         this.setState({
           element: document.elementFromPoint(this.state.x, this.state.y)
         })
-
         // Adiciona classe decorativa ao elemento onde o mouse esta posicionado
         if (this.state.element !== null) {
           this.state.element.classList.add('selectedElement')
@@ -43,26 +49,34 @@ class App extends Component {
     }
   }
 
-  // Captura click do mouse na posição salva no state e adiciona ao array de hotspots
+  // Captura click do mouse
   onMouseClick = () => {
+    // Verifica se o botao criar hotspot foi clicado
     if (this.state.hotspotCreatorActive) {
+      // Pergunta o Titulo do hotspot
       let title = prompt('Titulo do hotspot')
+      // Pergunta a Mensagem do hotspot
       let message = prompt('Mensagem do hotspot')
+      // Verifica se titulo e mensagem são validos (!vazio e !null)
       if (title !== null && title !== '' && message !== null && message !== '') {
+        // Cria variavel com novo hotspot
         let newHotspot = {
           title: title,
           message: message,
           x: this.state.x,
           y: this.state.y
         }
+        // Envia hotspot para a action e posteriormente é adicionado a store
         this.props.dispatch(addHotspot(newHotspot))
       }
+      // Após finalizar a criaçao do hotspot desativa o rastreio para a criaçao de um novo hotspot
       this.setState({
         hotspotCreatorActive: false
       })
     }
   }
 
+  // Ativa o rastreio para a criaçao de um novo hotspot
   activeHotspotCreator = () => {
     this.setState({
       hotspotCreatorActive: true
@@ -71,20 +85,13 @@ class App extends Component {
 
   render() {
     return (
-      <div
-        onMouseMove={e => this.onMouseMove(e)}
-        onMouseOver={this.onMouseOver}
-        onMouseOut={this.onMouseOut}
-        onClick={this.onMouseClick}>
-
+      <div onMouseMove={e => this.onMouseMove(e)} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} onClick={this.onMouseClick}>
         <NavigationBar />
         <Routes activeHotspotCreator={this.activeHotspotCreator} hotspotCreatorActive={this.state.hotspotCreatorActive} />
-
-        {/* Exibe os hotspots cadastrados */}
         {this.props.hotspots.map((hotspot, index) => (
+          // Imprime na tela os hotspots cadastrados
           <Popover key={index} title={hotspot.title} message={hotspot.message} x={hotspot.x} y={hotspot.y} />
         ))}
-
       </div>
     );
   }

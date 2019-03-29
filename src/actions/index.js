@@ -10,7 +10,6 @@ export const addHotspot = newHotspot => {
     } else {
         localStorage.setItem('hotspots', JSON.stringify([newHotspot]))
     }
-
     // Envia o hotspot novo para a store
     return {
         type: ADD_HOTSPOT,
@@ -23,7 +22,6 @@ export const delHotspot = id => {
     let hotspots = JSON.parse(localStorage.getItem('hotspots'))
     hotspots.splice(id, 1)
     localStorage.setItem('hotspots', JSON.stringify(hotspots))
-
     // Envia o Id do hotspot para ser deletado na store
     return {
         type: DEL_HOTSPOT,
