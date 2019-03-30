@@ -12,7 +12,7 @@ import Popover from '../Popover/Popover'
 
 import PropTypes from 'prop-types'
 
-const Hotspots = ({ activeHotspotCreator, hotspotCreatorStatus, hotspots, dispatch }) => {
+export const Hotspots = ({ activeHotspotCreator, hotspotCreatorStatus, hotspots, dispatch }) => {
     return (
         <Container className="m-auto text-center">
             {/* // Botao que ativa o rastreio para iniciar cadastramento de Hotspots */}
