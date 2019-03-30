@@ -10,6 +10,8 @@ import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import Popover from '../Popover/Popover'
 
+import PropTypes from 'prop-types'
+
 const Hotspots = ({ activeHotspotCreator, hotspotCreatorStatus, hotspots, dispatch }) => {
     return (
         <Container className="m-auto text-center">
@@ -42,6 +44,13 @@ const Hotspots = ({ activeHotspotCreator, hotspotCreatorStatus, hotspots, dispat
 
 const mapStateToProps = state => {
     return state
+}
+
+Hotspots.propTypes = {
+    activeHotspotCreator: PropTypes.func,
+    hotspotCreatorStatus: PropTypes.bool,
+    hotspots: PropTypes.array,
+    dispatch: PropTypes.func
 }
 
 export default connect(mapStateToProps)(Hotspots)

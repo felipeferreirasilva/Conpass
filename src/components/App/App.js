@@ -9,6 +9,8 @@ import NavigationBar from '../NavigationBar/NavigationBar'
 import Routes from '../Routes/Routes'
 import Container from 'react-bootstrap/Container'
 
+import PropTypes from 'prop-types'
+
 class App extends Component {
   state = {
     // Cordanadas do mouse
@@ -95,6 +97,10 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return state
+}
+
+App.propTypes = {
+  hotspots: PropTypes.array
 }
 
 export default connect(mapStateToProps)(App);

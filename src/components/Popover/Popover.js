@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Importa compoenents do Bootstrap
 import PopoverBs from 'react-bootstrap/Popover'
@@ -29,6 +30,13 @@ const stylesheet = {
         height: '25px',
         position: 'absolute'
     }
+}
+
+Popover.propTypes = {
+    title: PropTypes.string,
+    message: PropTypes.string,
+    x: PropTypes.number,
+    y: PropTypes.number
 }
 
 export default Popover
