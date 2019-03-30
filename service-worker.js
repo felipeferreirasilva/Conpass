@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Conpass/precache-manifest.b4f6f019fc496f2b4a4524597cbfae88.js"
+  "/Conpass/precache-manifest.14b844da9819749ae0336d2828b8598c.js"
 );
 
 workbox.clientsClaim();
