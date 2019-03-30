@@ -17,7 +17,7 @@ React, React-Bootstrap
 
 ## Installing Client
 ### Install Dependencies
-run 'npm install' inside Farmbox folder
+run 'npm install' inside Conpass folder
 
 ## Running Application
 ### Run Client
