@@ -17,8 +17,8 @@ describe('<Popover />', () => {
         wrapper = shallow(<Popover />)
     })
 
-    it('renders 1 Popover', () => {
-        expect(wrapper.find('#popover').length).toBe(1);
+    it('renders OverlayTrigger', () => {
+        expect(wrapper.find(OverlayTrigger).length).toBe(1);
     })
 
 })
