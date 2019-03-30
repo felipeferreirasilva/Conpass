@@ -1,6 +1,6 @@
 # Conpass
 ## Desktop
-![](https://i.imgur.com/5rPuiCs.png)
+![](https://i.imgur.com/kkGUrYJ.png)
 
 ## Mobile
 ![](https://i.imgur.com/nSYReUI.png)
